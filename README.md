@@ -4,7 +4,7 @@ BK-tree is a data structure for search similar string.
 
 #### Install
 
-    go get https://github.com/khmerlang/bktree
+    go get github.com/khmerlang/bktree
 
 #### Example
 
@@ -13,7 +13,7 @@ package main
 
 import (
   "fmt"
-  "https://github.com/khmerlang/bktree"
+  "github.com/khmerlang/bktree"
 )
 
 func main() {
