@@ -2,6 +2,7 @@ package bktree
 
 import (
 	"github.com/khmerlang/levenshtein"
+	"sort"
 )
 
 type BKTree struct {
@@ -42,5 +43,10 @@ func (bk *BKTree) Search(str string, tolerance int) []*Result {
 			}
 		}
 	}
+
+	sort.Slice(results, func(i, j int) bool {
+		return results[i].Distance < results[j].Distance
+	})
+
 	return results
 }
