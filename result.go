@@ -1,6 +1,6 @@
 package bktree
 
 type Result struct {
-	Distance int
-	Text     string
+	Distance int `json:"distance"`
+	Text     string `json:"text"`
 }
