@@ -30,7 +30,7 @@ func (bk *BKTree) Search(str string, tolerance int) []*Result {
 		c := candidates[len(candidates)-1]
 		candidates = candidates[:len(candidates)-1]
 		d := levenshtein.Distance(c.text, str)
-		if false && d <= tolerance && strings.ContainsAny(c.text, str) {
+		if d <= tolerance && strings.ContainsAny(c.text, str) {
 			results = append(results, &Result{
 				Distance: d,
 				Text:     c.text,
