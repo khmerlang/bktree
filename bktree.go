@@ -3,6 +3,7 @@ package bktree
 import (
 	"github.com/khmerlang/levenshtein"
 	"sort"
+	"strings"
 )
 
 type BKTree struct {
@@ -28,8 +29,10 @@ func (bk *BKTree) Search(str string, tolerance int) []*Result {
 	for len(candidates) != 0 {
 		c := candidates[len(candidates)-1]
 		candidates = candidates[:len(candidates)-1]
-		d := levenshtein.Distance(c.text, str)
-		if d <= tolerance {
+		lowText := strings.ToLower(c.text)
+		lowStr := strings.ToLower(str)
+		d := levenshtein.Distance(lowText, lowStr)
+		if d <= tolerance && strings.ContainsAny(lowText, lowStr) {
 			results = append(results, &Result{
 				Distance: d,
 				Text:     c.text,
